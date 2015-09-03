@@ -1,0 +1,21 @@
+﻿TODO
+
+Add an Export to Excel function so that organizations can be sent to others more easily without everyone needing this program
+ - https://epplus.codeplex.com/ may work, I haven't worked with exporting excel sheets before.  Could spit out a CSV, but that seems messy.
+ Format should be simple.  Tab 1 is summary info, Tab 2 is Rooms, Tab 3 is Teams
+
+ Refactor Resources to be a list rather than hardcoded values of an object.  The Cost/Earn modifiers would need a small amount of work.
+ Make an OrgResource object that stores a base resource, a cost, and an income.  Each OrgObject and Org_Augmentation would have a resource list
+ Any advantages to (Resource, Cost, Income) vs (Resource, Amount) and having both a cost list and income list?
+ Would then be able to simplify and cut down code for getting totals, having them pass a parameter to choose the resource instead of having a hard method for each.
+
+ Get feedback
+
+ Hide Augmentations box on the OrgTeam screen?
+
+ Change from longs to 32 bit integers?
+
+ Refactor code in ObjectDisplay, it works but is messy for adding objects to the list, mostly because of index onchange events
+ Should disable those for the duration of that code block, do everything as needed, and re-enable
+
+ Review concerns for Org objects, do the methods make sense there to do their calculations, or should they be externalized?
