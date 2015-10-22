@@ -25,9 +25,8 @@ namespace PF_Downtime
         {
             Manager_Button.Text = Data.Organization.Manager.Name + " - " + Data.Organization.Manager.Type.Display;
             PopulateLimitCombo();
-            Location_Text.Text = Data.Organization.Settlement.Location;
-            Notes_Text.Text = Data.Organization.Settlement.Notes;
-            Settlement_Combo.SelectedIndex = (Int32)Data.Organization.Settlement.Limit.Limit_ID;
+            PopulateBMCombo();
+            PopulateSettlementInfo();
 
             if (Data.Organization.Parallel)
             {
@@ -41,9 +40,19 @@ namespace PF_Downtime
         /// </summary>
         private void PopulateLimitCombo()
         {
-            Settlement_Combo.DataSource = Data.LimitList;
+            Settlement_Combo.DataSource = Data.SettlementList;
             Settlement_Combo.DisplayMember = "Info";
             Settlement_Combo.ValueMember = null;
+        }
+
+        /// <summary>
+        /// Populates the BlackMarket combo
+        /// </summary>
+        private void PopulateBMCombo()
+        {
+            BlackMarketCombo.DataSource = Data.BlackMarketList;
+            BlackMarketCombo.DisplayMember = "Info";
+            BlackMarketCombo.ValueMember = null;
         }
 
         /// <summary>
@@ -52,7 +61,8 @@ namespace PF_Downtime
         private void PopulateSettlementInfo()
         {
             Location_Text.Text = Data.Organization.Settlement.Location;
-            Settlement_Combo.SelectedIndex = (Int32)Data.Organization.Settlement.Limit.Limit_ID;
+            Settlement_Combo.SelectedIndex = (Int32)Data.Organization.Settlement.Settlement.Limit_ID;
+            BlackMarketCombo.SelectedIndex = (Int32)Data.Organization.Settlement.BlackMarket.Limit_ID;
             Notes_Text.Text = Data.Organization.Notes;
         }
 
@@ -76,7 +86,8 @@ namespace PF_Downtime
         private void Save_Button_Click(object sender, EventArgs e)
         {
             Data.Organization.Settlement.Location = Location_Text.Text;
-            Data.Organization.Settlement.Limit = (Models.BaseLimit)Settlement_Combo.SelectedValue;
+            Data.Organization.Settlement.Settlement = (Models.BaseSettlement)Settlement_Combo.SelectedValue;
+            Data.Organization.Settlement.BlackMarket = (Models.BaseBlackMarket)BlackMarketCombo.SelectedValue;
             Data.Organization.Settlement.Notes = Notes_Text.Text;
             Data.Organization.Parallel = ParallelCheck.Checked;
             Close();

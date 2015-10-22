@@ -101,7 +101,8 @@
     <Compile Include="GUI\ManagerDisplay.Designer.cs">
       <DependentUpon>ManagerDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\baseLimit.cs" />
+    <Compile Include="Models\BaseBlackMarket.cs" />
+    <Compile Include="Models\BaseSettlement.cs" />
     <Compile Include="Models\BaseManager.cs" />
     <Compile Include="Models\BaseObject.cs" />
     <Compile Include="Models\Base_Augmentation.cs" />

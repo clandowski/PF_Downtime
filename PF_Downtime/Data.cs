@@ -26,7 +26,11 @@ namespace PF_Downtime
         /// <summary>
         /// List of settlement limits from the database
         /// </summary>
-        public static List<Models.BaseLimit> LimitList;
+        public static List<Models.BaseSettlement> SettlementList;
+        /// <summary>
+        /// List of Black Market limits from the database
+        /// </summary>
+        public static List<Models.BaseBlackMarket> BlackMarketList;
         /// <summary>
         /// List of managers from the database
         /// </summary>
@@ -50,7 +54,8 @@ namespace PF_Downtime
             RoomList = SQL.getRoom();
             Room_AugmentationList = SQL.getRoom_Augmentation();
             TeamList = SQL.getTeam();
-            LimitList = SQL.getLimit();
+            SettlementList = SQL.getLimit();
+            BlackMarketList = SQL.getBlackMarket();
             ManagerList = SQL.getManager();
         }
     }

@@ -13,13 +13,18 @@ namespace PF_Downtime.Models
         /// </summary>
         public OrgSettlement()
         {
-            Limit = new BaseLimit();
+            Settlement = new BaseSettlement();
+            BlackMarket = new BaseBlackMarket();
         }
 
         /// <summary>
-        /// BaseLimit to base settlement spending limitations and size classification on
+        /// BaseSettlement to base settlement spending limitations and size classification on
         /// </summary>
-        public BaseLimit Limit;
+        public BaseSettlement Settlement;
+        /// <summary>
+        /// BaseBlackMarket to base Black Market spending limitations and size classification on
+        /// </summary>
+        public BaseBlackMarket BlackMarket;
         /// <summary>
         /// User controlled field to describe organization location
         /// </summary>

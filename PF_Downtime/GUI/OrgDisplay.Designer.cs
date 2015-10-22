@@ -38,6 +38,8 @@
             this.Manager_Label = new System.Windows.Forms.Label();
             this.Save_Button = new System.Windows.Forms.Button();
             this.ParallelCheck = new System.Windows.Forms.CheckBox();
+            this.BlackMarketCombo = new System.Windows.Forms.ComboBox();
+            this.BMLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Settlement_Combo
@@ -65,7 +67,7 @@
             // 
             this.Manager_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Manager_Button.Location = new System.Drawing.Point(88, 78);
+            this.Manager_Button.Location = new System.Drawing.Point(88, 108);
             this.Manager_Button.Name = "Manager_Button";
             this.Manager_Button.Size = new System.Drawing.Size(644, 43);
             this.Manager_Button.TabIndex = 4;
@@ -97,16 +99,16 @@
             this.Notes_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Notes_Text.Location = new System.Drawing.Point(88, 127);
+            this.Notes_Text.Location = new System.Drawing.Point(88, 157);
             this.Notes_Text.Multiline = true;
             this.Notes_Text.Name = "Notes_Text";
-            this.Notes_Text.Size = new System.Drawing.Size(644, 203);
+            this.Notes_Text.Size = new System.Drawing.Size(644, 222);
             this.Notes_Text.TabIndex = 7;
             // 
             // Notes_Label
             // 
             this.Notes_Label.AutoSize = true;
-            this.Notes_Label.Location = new System.Drawing.Point(31, 130);
+            this.Notes_Label.Location = new System.Drawing.Point(31, 160);
             this.Notes_Label.Name = "Notes_Label";
             this.Notes_Label.Size = new System.Drawing.Size(51, 20);
             this.Notes_Label.TabIndex = 8;
@@ -115,7 +117,7 @@
             // Manager_Label
             // 
             this.Manager_Label.AutoSize = true;
-            this.Manager_Label.Location = new System.Drawing.Point(10, 89);
+            this.Manager_Label.Location = new System.Drawing.Point(10, 119);
             this.Manager_Label.Name = "Manager_Label";
             this.Manager_Label.Size = new System.Drawing.Size(72, 20);
             this.Manager_Label.TabIndex = 9;
@@ -125,7 +127,7 @@
             // 
             this.Save_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save_Button.Location = new System.Drawing.Point(88, 367);
+            this.Save_Button.Location = new System.Drawing.Point(88, 416);
             this.Save_Button.Name = "Save_Button";
             this.Save_Button.Size = new System.Drawing.Size(644, 41);
             this.Save_Button.TabIndex = 10;
@@ -138,18 +140,41 @@
             this.ParallelCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ParallelCheck.AutoSize = true;
-            this.ParallelCheck.Location = new System.Drawing.Point(88, 337);
+            this.ParallelCheck.Location = new System.Drawing.Point(88, 386);
             this.ParallelCheck.Name = "ParallelCheck";
             this.ParallelCheck.Size = new System.Drawing.Size(186, 24);
             this.ParallelCheck.TabIndex = 11;
             this.ParallelCheck.Text = "Construct in Parralel?";
             this.ParallelCheck.UseVisualStyleBackColor = true;
             // 
+            // BlackMarketCombo
+            // 
+            this.BlackMarketCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BlackMarketCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BlackMarketCombo.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BlackMarketCombo.FormattingEnabled = true;
+            this.BlackMarketCombo.Location = new System.Drawing.Point(88, 76);
+            this.BlackMarketCombo.Name = "BlackMarketCombo";
+            this.BlackMarketCombo.Size = new System.Drawing.Size(644, 26);
+            this.BlackMarketCombo.TabIndex = 12;
+            // 
+            // BMLabel
+            // 
+            this.BMLabel.AutoSize = true;
+            this.BMLabel.Location = new System.Drawing.Point(14, 77);
+            this.BMLabel.Name = "BMLabel";
+            this.BMLabel.Size = new System.Drawing.Size(68, 20);
+            this.BMLabel.TabIndex = 13;
+            this.BMLabel.Text = "BM Size";
+            // 
             // OrgDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 427);
+            this.ClientSize = new System.Drawing.Size(744, 476);
+            this.Controls.Add(this.BMLabel);
+            this.Controls.Add(this.BlackMarketCombo);
             this.Controls.Add(this.ParallelCheck);
             this.Controls.Add(this.Save_Button);
             this.Controls.Add(this.Manager_Label);
@@ -179,5 +204,7 @@
         private System.Windows.Forms.Label Manager_Label;
         private System.Windows.Forms.Button Save_Button;
         private System.Windows.Forms.CheckBox ParallelCheck;
+        private System.Windows.Forms.ComboBox BlackMarketCombo;
+        private System.Windows.Forms.Label BMLabel;
     }
 }

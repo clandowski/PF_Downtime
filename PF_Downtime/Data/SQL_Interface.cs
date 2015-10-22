@@ -26,9 +26,9 @@ namespace PF_Downtime
         /// Reads limits from the baseLimits table in the database and constructs a list of them
         /// </summary>
         /// <returns>List of BaseLimits</returns>
-        public List<Models.BaseLimit> getLimit()
+        public List<Models.BaseSettlement> getLimit()
         {
-            List<Models.BaseLimit> Limits = new List<Models.BaseLimit>();
+            List<Models.BaseSettlement> Limits = new List<Models.BaseSettlement>();
 
             SetConnection();
             OpenDB();
@@ -36,12 +36,34 @@ namespace PF_Downtime
             DB = ExecuteReader("select * from baseLimits");
             while (DB.Read())
             {
-                Limits.Add(new Models.BaseLimit((Int64)DB["Limit_ID"], (String)DB["Settlement"], (Int64)DB["Limit"]));
+                Limits.Add(new Models.BaseSettlement((Int64)DB["Limit_ID"], (String)DB["Settlement"], (Int64)DB["Limit"]));
             }
 
             CloseDB();
 
             return Limits;
+        }
+
+        /// <summary>
+        /// Reads Black Markets from the baseBlackMarkets table in the database and constructs a list of them
+        /// </summary>
+        /// <returns>List of BaseLimits</returns>
+        public List<Models.BaseBlackMarket> getBlackMarket()
+        {
+            List<Models.BaseBlackMarket> BMs = new List<Models.BaseBlackMarket>();
+
+            SetConnection();
+            OpenDB();
+
+            DB = ExecuteReader("select * from baseBlackMarkets");
+            while (DB.Read())
+            {
+                BMs.Add(new Models.BaseBlackMarket((Int64)DB["ID"], (String)DB["BlackMarket"], (Int64)DB["Limit"]));
+            }
+
+            CloseDB();
+
+            return BMs;
         }
 
         /// <summary>

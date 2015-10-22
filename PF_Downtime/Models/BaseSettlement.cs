@@ -5,7 +5,7 @@ namespace PF_Downtime.Models
     /// <summary>
     /// Represents settlement sizes and their spending limitations
     /// </summary>
-    public class BaseLimit
+    public class BaseSettlement
     {
         /// <summary>
         /// Unique Identifier from the database
@@ -24,14 +24,14 @@ namespace PF_Downtime.Models
         /// <summary>
         /// Instantiates a base Limit object with 0 or blank values.
         /// </summary>
-        public BaseLimit() { }
+        public BaseSettlement() { }
         /// <summary>
         /// Instantiates a base limit object
         /// </summary>
         /// <param name="Limit_ID">Unique identifier from the database</param>
         /// <param name="Settlement">Settlement size classification</param>
         /// <param name="Limit">Resource spending limit per day</param>
-        public BaseLimit(Int64 Limit_ID, String Settlement, Int64 Limit)
+        public BaseSettlement(Int64 Limit_ID, String Settlement, Int64 Limit)
         {
             this.Limit_ID = Limit_ID;
             this.Settlement = Settlement;
