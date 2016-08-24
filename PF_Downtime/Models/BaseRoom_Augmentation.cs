@@ -24,8 +24,9 @@ namespace PF_Downtime.Models
         /// <param name="Cost_Magic">Magic cost to add Augmentation to room</param>
         /// <param name="Days">Days to finish adding Augmentation to a room</param>
         /// <param name="Size">Additional space needed for room to support Augmentation</param>
+        /// <param name="Max_Size">Additional space needed for room to support Augmentation</param>
         public BaseRoom_Augmentation(Int64 Augment_ID, String Name, String Benefit, Int64 Earn_Goods, Int64 Earn_Influence, Int64 Earn_Labor, Int64 Earn_Magic, Int64 Earn_GP,
-            Int64 Cost_Goods, Int64 Cost_Influence, Int64 Cost_Labor, Int64 Cost_Magic, Int64 Days, Int64 Size)
+            Int64 Cost_Goods, Int64 Cost_Influence, Int64 Cost_Labor, Int64 Cost_Magic, Int64 Days, Int64 Size, Int64 Max_Size)
         {
             this.Augment_ID = Augment_ID;
             this.Name = Name;
@@ -41,6 +42,7 @@ namespace PF_Downtime.Models
             this.Cost_Magic = Cost_Magic;
             this.Days = Days;
             this.Size = Size;
+            this.Max_Size = Max_Size;
         }
 
         /// <summary>
@@ -52,6 +54,7 @@ namespace PF_Downtime.Models
         /// Additional space needed for room to support Augmentation
         /// </summary>
         public Int64 Size { get; set; } = 0;
+        public Int64 Max_Size { get; set; } = 0;
 
     }
 }

@@ -64,6 +64,8 @@ namespace PF_Downtime
             this.Delete_Button = new System.Windows.Forms.Button();
             this.DaysComplete_Text = new System.Windows.Forms.TextBox();
             this.PaidCheck = new System.Windows.Forms.CheckBox();
+            this.Aug_Max = new System.Windows.Forms.Label();
+            this.Aug_Max_Text = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Org_Label
@@ -84,7 +86,7 @@ namespace PF_Downtime
             this.ObjectList.Location = new System.Drawing.Point(17, 37);
             this.ObjectList.MultiSelect = false;
             this.ObjectList.Name = "ObjectList";
-            this.ObjectList.Size = new System.Drawing.Size(718, 151);
+            this.ObjectList.Size = new System.Drawing.Size(776, 151);
             this.ObjectList.TabIndex = 1;
             this.ObjectList.UseCompatibleStateImageBehavior = false;
             this.ObjectList.SelectedIndexChanged += new System.EventHandler(this.ObjectList_SelectedIndexChanged);
@@ -109,7 +111,7 @@ namespace PF_Downtime
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Name_Text.Location = new System.Drawing.Point(103, 237);
             this.Name_Text.Name = "Name_Text";
-            this.Name_Text.Size = new System.Drawing.Size(635, 26);
+            this.Name_Text.Size = new System.Drawing.Size(693, 26);
             this.Name_Text.TabIndex = 3;
             // 
             // Type_Label
@@ -132,7 +134,7 @@ namespace PF_Downtime
             this.Type_Combo.FormattingEnabled = true;
             this.Type_Combo.Location = new System.Drawing.Point(103, 303);
             this.Type_Combo.Name = "Type_Combo";
-            this.Type_Combo.Size = new System.Drawing.Size(635, 26);
+            this.Type_Combo.Size = new System.Drawing.Size(693, 26);
             this.Type_Combo.TabIndex = 5;
             this.Type_Combo.SelectedIndexChanged += new System.EventHandler(this.Object_Or_Augment_Changed);
             // 
@@ -157,7 +159,7 @@ namespace PF_Downtime
             this.Augment_List.Location = new System.Drawing.Point(103, 344);
             this.Augment_List.Name = "Augment_List";
             this.Augment_List.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.Augment_List.Size = new System.Drawing.Size(635, 112);
+            this.Augment_List.Size = new System.Drawing.Size(693, 112);
             this.Augment_List.TabIndex = 8;
             this.Augment_List.SelectedIndexChanged += new System.EventHandler(this.Object_Or_Augment_Changed);
             // 
@@ -169,7 +171,7 @@ namespace PF_Downtime
             this.Income_Text.Location = new System.Drawing.Point(103, 471);
             this.Income_Text.Name = "Income_Text";
             this.Income_Text.ReadOnly = true;
-            this.Income_Text.Size = new System.Drawing.Size(635, 26);
+            this.Income_Text.Size = new System.Drawing.Size(693, 26);
             this.Income_Text.TabIndex = 9;
             // 
             // Income_Label
@@ -202,7 +204,7 @@ namespace PF_Downtime
             this.Costs_Text.Location = new System.Drawing.Point(103, 551);
             this.Costs_Text.Name = "Costs_Text";
             this.Costs_Text.ReadOnly = true;
-            this.Costs_Text.Size = new System.Drawing.Size(635, 26);
+            this.Costs_Text.Size = new System.Drawing.Size(693, 26);
             this.Costs_Text.TabIndex = 11;
             // 
             // Names_Label
@@ -243,7 +245,7 @@ namespace PF_Downtime
             this.Benefits_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Benefits_Label.AutoSize = true;
-            this.Benefits_Label.Location = new System.Drawing.Point(645, 280);
+            this.Benefits_Label.Location = new System.Drawing.Point(732, 280);
             this.Benefits_Label.Name = "Benefits_Label";
             this.Benefits_Label.Size = new System.Drawing.Size(61, 20);
             this.Benefits_Label.TabIndex = 16;
@@ -269,7 +271,7 @@ namespace PF_Downtime
             this.Description_Text.Name = "Description_Text";
             this.Description_Text.ReadOnly = true;
             this.Description_Text.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Description_Text.Size = new System.Drawing.Size(635, 200);
+            this.Description_Text.Size = new System.Drawing.Size(693, 200);
             this.Description_Text.TabIndex = 18;
             // 
             // Size_Text
@@ -279,7 +281,7 @@ namespace PF_Downtime
             this.Size_Text.Location = new System.Drawing.Point(103, 583);
             this.Size_Text.Name = "Size_Text";
             this.Size_Text.ReadOnly = true;
-            this.Size_Text.Size = new System.Drawing.Size(635, 26);
+            this.Size_Text.Size = new System.Drawing.Size(266, 26);
             this.Size_Text.TabIndex = 19;
             // 
             // Size_Label
@@ -300,7 +302,7 @@ namespace PF_Downtime
             this.Time_Text.Location = new System.Drawing.Point(228, 616);
             this.Time_Text.Name = "Time_Text";
             this.Time_Text.ReadOnly = true;
-            this.Time_Text.Size = new System.Drawing.Size(510, 26);
+            this.Time_Text.Size = new System.Drawing.Size(568, 26);
             this.Time_Text.TabIndex = 21;
             // 
             // Time_Label
@@ -320,7 +322,7 @@ namespace PF_Downtime
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Notes_Text.Location = new System.Drawing.Point(100, 888);
             this.Notes_Text.Name = "Notes_Text";
-            this.Notes_Text.Size = new System.Drawing.Size(635, 26);
+            this.Notes_Text.Size = new System.Drawing.Size(693, 26);
             this.Notes_Text.TabIndex = 23;
             // 
             // Notes_Label
@@ -340,7 +342,7 @@ namespace PF_Downtime
             | System.Windows.Forms.AnchorStyles.Right)));
             this.New_Button.Location = new System.Drawing.Point(512, 194);
             this.New_Button.Name = "New_Button";
-            this.New_Button.Size = new System.Drawing.Size(226, 40);
+            this.New_Button.Size = new System.Drawing.Size(284, 40);
             this.New_Button.TabIndex = 25;
             this.New_Button.Text = "New";
             this.New_Button.UseVisualStyleBackColor = true;
@@ -353,7 +355,7 @@ namespace PF_Downtime
             this.Benefit_Text.Location = new System.Drawing.Point(103, 649);
             this.Benefit_Text.Name = "Benefit_Text";
             this.Benefit_Text.ReadOnly = true;
-            this.Benefit_Text.Size = new System.Drawing.Size(635, 26);
+            this.Benefit_Text.Size = new System.Drawing.Size(693, 26);
             this.Benefit_Text.TabIndex = 26;
             // 
             // Benefit_Label
@@ -373,7 +375,7 @@ namespace PF_Downtime
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Add_Button.Location = new System.Drawing.Point(100, 921);
             this.Add_Button.Name = "Add_Button";
-            this.Add_Button.Size = new System.Drawing.Size(635, 32);
+            this.Add_Button.Size = new System.Drawing.Size(693, 32);
             this.Add_Button.TabIndex = 28;
             this.Add_Button.Text = "Add/Update";
             this.Add_Button.UseVisualStyleBackColor = true;
@@ -387,7 +389,7 @@ namespace PF_Downtime
             this.Focus_Combo.FormattingEnabled = true;
             this.Focus_Combo.Location = new System.Drawing.Point(103, 504);
             this.Focus_Combo.Name = "Focus_Combo";
-            this.Focus_Combo.Size = new System.Drawing.Size(635, 28);
+            this.Focus_Combo.Size = new System.Drawing.Size(693, 28);
             this.Focus_Combo.TabIndex = 29;
             // 
             // focus_Label
@@ -433,11 +435,34 @@ namespace PF_Downtime
             this.PaidCheck.Text = "Paid For";
             this.PaidCheck.UseVisualStyleBackColor = true;
             // 
+            // Aug_Max
+            // 
+            this.Aug_Max.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Aug_Max.AutoSize = true;
+            this.Aug_Max.Location = new System.Drawing.Point(375, 586);
+            this.Aug_Max.Name = "Aug_Max";
+            this.Aug_Max.Size = new System.Drawing.Size(142, 20);
+            this.Aug_Max.TabIndex = 58;
+            this.Aug_Max.Text = "Augment Max Size";
+            // 
+            // Aug_Max_Text
+            // 
+            this.Aug_Max_Text.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Aug_Max_Text.Location = new System.Drawing.Point(523, 583);
+            this.Aug_Max_Text.Name = "Aug_Max_Text";
+            this.Aug_Max_Text.ReadOnly = true;
+            this.Aug_Max_Text.Size = new System.Drawing.Size(273, 26);
+            this.Aug_Max_Text.TabIndex = 59;
+            // 
             // ObjectDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 965);
+            this.ClientSize = new System.Drawing.Size(805, 965);
+            this.Controls.Add(this.Aug_Max_Text);
+            this.Controls.Add(this.Aug_Max);
             this.Controls.Add(this.PaidCheck);
             this.Controls.Add(this.DaysComplete_Text);
             this.Controls.Add(this.Delete_Button);
@@ -514,5 +539,7 @@ namespace PF_Downtime
         private System.Windows.Forms.Button Delete_Button;
         private System.Windows.Forms.TextBox DaysComplete_Text;
         private System.Windows.Forms.CheckBox PaidCheck;
+        private System.Windows.Forms.Label Aug_Max;
+        private System.Windows.Forms.TextBox Aug_Max_Text;
     }
 }

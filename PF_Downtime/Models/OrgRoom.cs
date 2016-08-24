@@ -70,5 +70,17 @@ namespace PF_Downtime.Models
                 return (Room.Size_Min + Augmentations.Sum(e => ((BaseRoom_Augmentation)e).Size)) + " to " + (Room.Size_Max + Augmentations.Sum(e => ((BaseRoom_Augmentation)e).Size));
             }
         }
+
+        /// <summary>
+        /// Returns the lowest size limit imposed by all room augmentations.  Ignores 0s.
+        /// </summary>
+        public Int64 Max_Size
+        {
+            get
+            {
+                return (Augmentations.Where(e => ((BaseRoom_Augmentation)e).Max_Size != 0).Select(e => ((BaseRoom_Augmentation)e).Max_Size).DefaultIfEmpty().Min() );
+            }
+
+        }
     }
 }

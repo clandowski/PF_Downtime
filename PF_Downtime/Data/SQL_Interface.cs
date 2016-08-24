@@ -148,7 +148,7 @@ namespace PF_Downtime
             while (DB.Read())
             {
                 Room_Augmentations.Add(new Models.BaseRoom_Augmentation((Int64)DB["Augment_ID"], (String)DB["Name"], (String)DB["Benefit"], (Int64)DB["Earn_Goods"], (Int64)DB["Earn_Influence"], (Int64)DB["Earn_Labor"], (Int64)DB["Earn_Magic"], (Int64)DB["Earn_GP"]
-                    , (Int64)DB["Cost_Goods"], (Int64)DB["Cost_Influence"], (Int64)DB["Cost_Labor"], (Int64)DB["Cost_Magic"], (Int64)DB["Days"], (Int64)DB["Size"]));
+                    , (Int64)DB["Cost_Goods"], (Int64)DB["Cost_Influence"], (Int64)DB["Cost_Labor"], (Int64)DB["Cost_Magic"], (Int64)DB["Days"], (Int64)DB["Size"], (Int64)DB["Max_Size"]));
             }
 
             CloseDB();

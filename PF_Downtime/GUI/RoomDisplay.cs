@@ -51,6 +51,11 @@ namespace PF_Downtime
             return TempRoom.Size_Range;
         }
 
+        public override String MaxSizeText()
+        {
+            return TempRoom.Max_Size.ToString();
+        }
+
         /// <summary>
         /// Clears the Organization's OrgRoom list and repopulates it from this screen
         /// </summary>

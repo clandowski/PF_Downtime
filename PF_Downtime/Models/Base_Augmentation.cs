@@ -91,8 +91,8 @@ namespace PF_Downtime.Models
                     Benefits = " !";
                 }
                 return Name.PadRight(20) + " " + Earn_Goods.ToString().PadRight(2) + "/" + Earn_Influence.ToString().PadRight(2) + "/" + Earn_Labor.ToString().PadRight(2) + "/" +
-                    Earn_Magic.ToString().PadRight(2) + "/" + Earn_GP.ToString().PadRight(2) + " " + Cost_Goods.ToString().PadRight(2) + "/" + Cost_Influence.ToString().PadRight(2) +
-                    "/" + Cost_Labor.ToString().PadRight(2) + "/" + Cost_Magic.ToString().PadRight(2) + "/" + Cost_GP.ToString().PadRight(4) + " " + Benefits;
+                    Earn_Magic.ToString().PadRight(2) + "/" + Earn_GP.ToString().PadRight(2) + " " + Cost_Goods.ToString().PadRight(3) + "/" + Cost_Influence.ToString().PadRight(3) +
+                    "/" + Cost_Labor.ToString().PadRight(3) + "/" + Cost_Magic.ToString().PadRight(3) + "/" + Cost_GP.ToString().PadRight(6) + " " + Benefits;
             }
         }
 

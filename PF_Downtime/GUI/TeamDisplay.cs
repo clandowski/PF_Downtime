@@ -52,6 +52,11 @@ namespace PF_Downtime
             return TempTeam.Size_Range;
         }
 
+        public override String MaxSizeText()
+        {
+            return "None";
+        }
+
         /// <summary>
         /// Clears the Organization's OrgTeam list and repopulates it from this screen
         /// </summary>

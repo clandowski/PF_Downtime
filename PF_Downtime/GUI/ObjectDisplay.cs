@@ -216,6 +216,7 @@ namespace PF_Downtime
             Income_Text.Text = TempObject.BuildIncome();
             Costs_Text.Text = TempObject.BuildCosts();
             Size_Text.Text = BuildSizeText();//TempObject.Size_Range;
+            Aug_Max_Text.Text = MaxSizeText();
             Time_Text.Text = TempObject.TotalDays.ToString();
             Benefit_Text.Text = TempObject.Object.Benefit;
 
@@ -226,6 +227,11 @@ namespace PF_Downtime
         /// Populates Size_Text with size info based on TempObject.Size
         /// </summary>
         public abstract String BuildSizeText();
+
+        /// <summary>
+        /// Populates Max_Size_Text with size info based on TempObject.Max_Size
+        /// </summary>
+        public abstract String MaxSizeText();
 
         /// <summary>
         /// Populates initial data to the screen
