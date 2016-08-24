@@ -217,6 +217,7 @@ namespace PF_Downtime
             Costs_Text.Text = TempObject.BuildCosts();
             Size_Text.Text = BuildSizeText();//TempObject.Size_Range;
             Aug_Max_Text.Text = MaxSizeText();
+            if (Aug_Max_Text.Text == "None") { Aug_Max_Text.BackColor = System.Drawing.Color.Empty; } else { Aug_Max_Text.BackColor = System.Drawing.Color.Red; }
             Time_Text.Text = TempObject.TotalDays.ToString();
             Benefit_Text.Text = TempObject.Object.Benefit;
 

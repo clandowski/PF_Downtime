@@ -53,7 +53,7 @@ namespace PF_Downtime
 
         public override String MaxSizeText()
         {
-            return TempRoom.Max_Size.ToString();
+            if (TempRoom.Max_Size == 0) { return "None"; } else { return TempRoom.Max_Size.ToString(); }
         }
 
         /// <summary>
