@@ -28,5 +28,11 @@ namespace PF_Downtime.Models
         /// </summary>
         public String Notes { get; set; } = "";
 
+        public int GPBonus { get; set; } = 0;
+        public int GoodsBonus { get; set; } = 0;
+        public int InfluenceBonus { get; set; } = 0;
+        public int LaborBonus { get; set; } = 0;
+        public int MagicBonus { get; set; } = 0;
+
     }
 }

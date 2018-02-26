@@ -434,6 +434,7 @@ namespace PF_Downtime
             this.PaidCheck.TabIndex = 57;
             this.PaidCheck.Text = "Paid For";
             this.PaidCheck.UseVisualStyleBackColor = true;
+            this.PaidCheck.CheckedChanged += new System.EventHandler(this.PaidCheck_CheckedChanged);
             // 
             // Aug_Max
             // 

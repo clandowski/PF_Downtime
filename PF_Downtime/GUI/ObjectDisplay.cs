@@ -213,6 +213,7 @@ namespace PF_Downtime
             TempObject.Augmentations = Augment_List.SelectedItems.OfType<Models.Base_Augmentation>().ToList();
             TempObject.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
 
+            TempObject.Paid = PaidCheck.Checked;
             Income_Text.Text = TempObject.BuildIncome();
             Costs_Text.Text = TempObject.BuildCosts();
             Size_Text.Text = BuildSizeText();//TempObject.Size_Range;
@@ -262,24 +263,15 @@ namespace PF_Downtime
             if (ObjectList.SelectedIndices.Count > 0)
             {
                 TempObject = Objects[ObjectList.SelectedIndices[0]];
-                Boolean paid = TempObject.Paid;
                 Focus_Combo.SelectedIndex = (int)TempObject.ActiveResource.Resource_ID;
                 Type_Combo.SelectedIndex = (int)TempObject.Object.ID - 1;
-                TempObject.Paid = paid;
 
                 Augment_List.SelectedItems.Clear();
                 Name_Text.Text = Objects[ObjectList.SelectedIndices[0]].Name;
                 Notes_Text.Text = Objects[ObjectList.SelectedIndices[0]].Notes;
                 DaysComplete_Text.Text = Objects[ObjectList.SelectedIndices[0]].DaysComplete.ToString();
 
-                if (paid)
-                {
-                    PaidCheck.CheckState = CheckState.Checked;
-                }
-                else
-                {
-                    PaidCheck.CheckState = CheckState.Unchecked;
-                }
+                PaidCheck.CheckState = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
 
                 foreach (Models.BaseRoom_Augmentation Augment in Objects[ObjectList.SelectedIndices[0]].Augmentations)
                 {
@@ -401,6 +393,18 @@ namespace PF_Downtime
             }
 
             Cursor = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Change Income and Cost displays when paid for
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PaidCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            TempObject.Paid = PaidCheck.Checked;
+            Income_Text.Text = TempObject.BuildIncome();
+            Costs_Text.Text = TempObject.BuildCosts();
         }
     }
 }

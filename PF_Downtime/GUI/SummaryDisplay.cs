@@ -45,27 +45,27 @@ namespace PF_Downtime
         {
             Overview_Lst.Items.Clear();
             Overview_Lst.Items.Add("Organization Overview");
-            Overview_Lst.Items.Add("Manager: " + Data.Organization.Manager.Name + " - " + Data.Organization.Manager.Type.Display);
-            Overview_Lst.Items.Add("Total Rooms: " + Data.Organization.Rooms.Count());
-            Overview_Lst.Items.Add("Total Teams: " + Data.Organization.Teams.Count());
+            Overview_Lst.Items.Add("Manager:        " + Data.Organization.Manager.Name + " - " + Data.Organization.Manager.Type.Display);
+            Overview_Lst.Items.Add("Total Rooms:    " + Data.Organization.Rooms.Count());
+            Overview_Lst.Items.Add("Total Teams:    " + Data.Organization.Teams.Count());
 
             Overview_Lst.Items.Add("---Current Income (Paid and Days Complete)---");
-            Overview_Lst.Items.Add("GP Mod: " + Data.Organization.Earn_GP + " Max: " + Data.Organization.Earn_GP_Max);
-            Overview_Lst.Items.Add("Goods Mod: " + Data.Organization.Earn_Goods + " Max: " + Data.Organization.Earn_Goods_Max);
-            Overview_Lst.Items.Add("Influence Mod: " + Data.Organization.Earn_Influence + " Max: " + Data.Organization.Earn_Influence_Max);
-            Overview_Lst.Items.Add("Labor Mod: " + Data.Organization.Earn_Labor + " Max: " + Data.Organization.Earn_Labor_Max);
-            Overview_Lst.Items.Add("Magic Mod: " + Data.Organization.Earn_Magic + " Max: " + Data.Organization.Earn_Magic_Max);
+            Overview_Lst.Items.Add("GP Mod:         " + Data.Organization.Earn_GP.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_GP_Max);
+            Overview_Lst.Items.Add("Goods Mod:      " + Data.Organization.Earn_Goods.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Goods_Max);
+            Overview_Lst.Items.Add("Influence Mod:  " + Data.Organization.Earn_Influence.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Influence_Max);
+            Overview_Lst.Items.Add("Labor Mod:      " + Data.Organization.Earn_Labor.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Labor_Max);
+            Overview_Lst.Items.Add("Magic Mod:      " + Data.Organization.Earn_Magic.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Magic_Max);
             
             Overview_Lst.Items.Add("---Pending Time (Paid Only)---");
-            Overview_Lst.Items.Add("Buildtime: " + Data.Organization.ConstructionDaysRemaining);
-            Overview_Lst.Items.Add("Recruittime: " + Data.Organization.RecruitmentDaysRemaining);
+            Overview_Lst.Items.Add("Buildtime:      " + Data.Organization.ConstructionDaysRemaining);
+            Overview_Lst.Items.Add("Recruittime:    " + Data.Organization.RecruitmentDaysRemaining);
 
             Overview_Lst.Items.Add("---Remaining Costs (Unpaid Only)---");
-            Overview_Lst.Items.Add("GP Cost: " + Data.Organization.Cost_GP);
-            Overview_Lst.Items.Add("Goods Cost: " + Data.Organization.Cost_Goods);
+            Overview_Lst.Items.Add("Buyout GP Cost: " + Data.Organization.Cost_GP);
+            Overview_Lst.Items.Add("Goods Cost:     " + Data.Organization.Cost_Goods);
             Overview_Lst.Items.Add("Influence Cost: " + Data.Organization.Cost_Influence);
-            Overview_Lst.Items.Add("Labor Cost: " + Data.Organization.Cost_Labor);
-            Overview_Lst.Items.Add("Magic Cost: " + Data.Organization.Cost_Magic);
+            Overview_Lst.Items.Add("Labor Cost:     " + Data.Organization.Cost_Labor);
+            Overview_Lst.Items.Add("Magic Cost:     " + Data.Organization.Cost_Magic);
 
         }
 

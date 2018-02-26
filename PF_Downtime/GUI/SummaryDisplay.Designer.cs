@@ -77,17 +77,18 @@
             this.Overview_Lst.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Overview_Lst.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Overview_Lst.FormattingEnabled = true;
-            this.Overview_Lst.ItemHeight = 20;
+            this.Overview_Lst.ItemHeight = 18;
             this.Overview_Lst.Location = new System.Drawing.Point(14, 88);
             this.Overview_Lst.Name = "Overview_Lst";
-            this.Overview_Lst.Size = new System.Drawing.Size(603, 404);
+            this.Overview_Lst.Size = new System.Drawing.Size(603, 418);
             this.Overview_Lst.TabIndex = 4;
             // 
             // Rooms_Btn
             // 
             this.Rooms_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Rooms_Btn.Location = new System.Drawing.Point(14, 612);
+            this.Rooms_Btn.Location = new System.Drawing.Point(14, 630);
             this.Rooms_Btn.Name = "Rooms_Btn";
             this.Rooms_Btn.Size = new System.Drawing.Size(211, 45);
             this.Rooms_Btn.TabIndex = 5;
@@ -99,7 +100,7 @@
             // 
             this.Export_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Export_Btn.Location = new System.Drawing.Point(231, 611);
+            this.Export_Btn.Location = new System.Drawing.Point(231, 629);
             this.Export_Btn.Name = "Export_Btn";
             this.Export_Btn.Size = new System.Drawing.Size(167, 45);
             this.Export_Btn.TabIndex = 6;
@@ -110,7 +111,7 @@
             // Teams_Btn
             // 
             this.Teams_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Teams_Btn.Location = new System.Drawing.Point(404, 612);
+            this.Teams_Btn.Location = new System.Drawing.Point(404, 630);
             this.Teams_Btn.Name = "Teams_Btn";
             this.Teams_Btn.Size = new System.Drawing.Size(212, 45);
             this.Teams_Btn.TabIndex = 7;
@@ -133,7 +134,7 @@
             // QuickText
             // 
             this.QuickText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.QuickText.Location = new System.Drawing.Point(13, 556);
+            this.QuickText.Location = new System.Drawing.Point(13, 574);
             this.QuickText.Name = "QuickText";
             this.QuickText.Size = new System.Drawing.Size(384, 26);
             this.QuickText.TabIndex = 9;
@@ -143,7 +144,7 @@
             // 
             this.advanceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.advanceButton.Location = new System.Drawing.Point(406, 556);
+            this.advanceButton.Location = new System.Drawing.Point(406, 574);
             this.advanceButton.Name = "advanceButton";
             this.advanceButton.Size = new System.Drawing.Size(211, 50);
             this.advanceButton.TabIndex = 10;
@@ -155,7 +156,7 @@
             // 
             this.Paid_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Paid_Button.Location = new System.Drawing.Point(404, 499);
+            this.Paid_Button.Location = new System.Drawing.Point(404, 517);
             this.Paid_Button.Name = "Paid_Button";
             this.Paid_Button.Size = new System.Drawing.Size(212, 51);
             this.Paid_Button.TabIndex = 11;
@@ -166,7 +167,7 @@
             // Unpaid_Button
             // 
             this.Unpaid_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Unpaid_Button.Location = new System.Drawing.Point(231, 498);
+            this.Unpaid_Button.Location = new System.Drawing.Point(231, 516);
             this.Unpaid_Button.Name = "Unpaid_Button";
             this.Unpaid_Button.Size = new System.Drawing.Size(167, 51);
             this.Unpaid_Button.TabIndex = 12;
@@ -178,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 668);
+            this.ClientSize = new System.Drawing.Size(628, 686);
             this.Controls.Add(this.Unpaid_Button);
             this.Controls.Add(this.Paid_Button);
             this.Controls.Add(this.advanceButton);

@@ -47,6 +47,11 @@ namespace PF_Downtime
             Skills_Text.Text = Data.Organization.Manager.Type.Skills;
             Notes_Text.Text = Data.Organization.Manager.Notes;
             Manager_Combo.SelectedIndex = (Int32)Data.Organization.Manager.Type.ManagerID;
+            GoodsNum.Value = Data.Organization.Manager.GoodsBonus;
+            InfNum.Value = Data.Organization.Manager.InfluenceBonus;
+            LaborNum.Value = Data.Organization.Manager.LaborBonus;
+            MagicNum.Value = Data.Organization.Manager.MagicBonus;
+            GPNum.Value = Data.Organization.Manager.GPBonus;
         }
 
         /// <summary>
@@ -59,6 +64,17 @@ namespace PF_Downtime
             Data.Organization.Manager.Name = Name_Text.Text;
             Data.Organization.Manager.Notes = Notes_Text.Text;
             Data.Organization.Manager.Type = (Models.BaseManager)Manager_Combo.SelectedValue;
+            int x = 0;
+            int.TryParse(GoodsNum.Text, out x);
+            Data.Organization.Manager.GoodsBonus = x;
+            int.TryParse(InfNum.Text, out x);
+            Data.Organization.Manager.InfluenceBonus = x;
+            int.TryParse(LaborNum.Text, out x);
+            Data.Organization.Manager.LaborBonus = x;
+            int.TryParse(MagicNum.Text, out x);
+            Data.Organization.Manager.MagicBonus = x;
+            int.TryParse(GPNum.Text, out x);
+            Data.Organization.Manager.GPBonus = x;
             Close();
         }
 
