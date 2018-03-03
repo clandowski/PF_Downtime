@@ -49,6 +49,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.GPNum = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.focus_Label = new System.Windows.Forms.Label();
+            this.Focus_Combo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LaborNum)).BeginInit();
@@ -73,7 +75,7 @@
             this.Notes_Text.Location = new System.Drawing.Point(109, 218);
             this.Notes_Text.Multiline = true;
             this.Notes_Text.Name = "Notes_Text";
-            this.Notes_Text.Size = new System.Drawing.Size(642, 117);
+            this.Notes_Text.Size = new System.Drawing.Size(642, 87);
             this.Notes_Text.TabIndex = 22;
             // 
             // label6
@@ -169,6 +171,7 @@
             // 
             // BonusLabel
             // 
+            this.BonusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BonusLabel.AutoSize = true;
             this.BonusLabel.Location = new System.Drawing.Point(46, 344);
             this.BonusLabel.Name = "BonusLabel";
@@ -178,6 +181,7 @@
             // 
             // GoodsNum
             // 
+            this.GoodsNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GoodsNum.Location = new System.Drawing.Point(109, 342);
             this.GoodsNum.Name = "GoodsNum";
             this.GoodsNum.Size = new System.Drawing.Size(63, 26);
@@ -185,6 +189,7 @@
             // 
             // InfNum
             // 
+            this.InfNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.InfNum.Location = new System.Drawing.Point(241, 342);
             this.InfNum.Name = "InfNum";
             this.InfNum.Size = new System.Drawing.Size(63, 26);
@@ -192,6 +197,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(178, 344);
             this.label1.Name = "label1";
@@ -201,6 +207,7 @@
             // 
             // LaborNum
             // 
+            this.LaborNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LaborNum.Location = new System.Drawing.Point(373, 342);
             this.LaborNum.Name = "LaborNum";
             this.LaborNum.Size = new System.Drawing.Size(63, 26);
@@ -208,6 +215,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(310, 344);
             this.label2.Name = "label2";
@@ -217,6 +225,7 @@
             // 
             // MagicNum
             // 
+            this.MagicNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.MagicNum.Location = new System.Drawing.Point(505, 342);
             this.MagicNum.Name = "MagicNum";
             this.MagicNum.Size = new System.Drawing.Size(63, 26);
@@ -224,6 +233,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(442, 344);
             this.label8.Name = "label8";
@@ -233,6 +243,7 @@
             // 
             // GPNum
             // 
+            this.GPNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GPNum.Location = new System.Drawing.Point(637, 342);
             this.GPNum.Name = "GPNum";
             this.GPNum.Size = new System.Drawing.Size(63, 26);
@@ -240,6 +251,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(574, 344);
             this.label9.Name = "label9";
@@ -247,11 +259,35 @@
             this.label9.TabIndex = 34;
             this.label9.Text = "GP";
             // 
+            // focus_Label
+            // 
+            this.focus_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.focus_Label.AutoSize = true;
+            this.focus_Label.Location = new System.Drawing.Point(46, 316);
+            this.focus_Label.Name = "focus_Label";
+            this.focus_Label.Size = new System.Drawing.Size(53, 20);
+            this.focus_Label.TabIndex = 37;
+            this.focus_Label.Text = "Focus";
+            // 
+            // Focus_Combo
+            // 
+            this.Focus_Combo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Focus_Combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Focus_Combo.FormattingEnabled = true;
+            this.Focus_Combo.Location = new System.Drawing.Point(109, 313);
+            this.Focus_Combo.Name = "Focus_Combo";
+            this.Focus_Combo.Size = new System.Drawing.Size(641, 28);
+            this.Focus_Combo.TabIndex = 36;
+            // 
             // ManagerDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 425);
+            this.Controls.Add(this.focus_Label);
+            this.Controls.Add(this.Focus_Combo);
             this.Controls.Add(this.GPNum);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.MagicNum);
@@ -309,5 +345,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown GPNum;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label focus_Label;
+        private System.Windows.Forms.ComboBox Focus_Combo;
     }
 }

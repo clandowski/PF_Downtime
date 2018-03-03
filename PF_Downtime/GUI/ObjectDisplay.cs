@@ -263,6 +263,7 @@ namespace PF_Downtime
             if (ObjectList.SelectedIndices.Count > 0)
             {
                 TempObject = Objects[ObjectList.SelectedIndices[0]];
+                PaidCheck.CheckState = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
                 Focus_Combo.SelectedIndex = (int)TempObject.ActiveResource.Resource_ID;
                 Type_Combo.SelectedIndex = (int)TempObject.Object.ID - 1;
 
@@ -271,16 +272,15 @@ namespace PF_Downtime
                 Notes_Text.Text = Objects[ObjectList.SelectedIndices[0]].Notes;
                 DaysComplete_Text.Text = Objects[ObjectList.SelectedIndices[0]].DaysComplete.ToString();
 
-                PaidCheck.CheckState = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
-
                 foreach (Models.BaseRoom_Augmentation Augment in Objects[ObjectList.SelectedIndices[0]].Augmentations)
                 {
                     Augment_List.SetSelected((Int32)Augment.Augment_ID - 1, true);
                 }
 
+                
+
                 Object_Or_Augment_Changed(null, null);
 
-                
             }
             else
             {

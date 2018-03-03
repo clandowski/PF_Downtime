@@ -24,6 +24,7 @@ namespace PF_Downtime
         private void ManagerDisplay_Load(object sender, EventArgs e)
         {
             PopulateManagerCombo();
+            PopulateResourceCombo();
             LoadManagerData();
         }
 
@@ -47,11 +48,12 @@ namespace PF_Downtime
             Skills_Text.Text = Data.Organization.Manager.Type.Skills;
             Notes_Text.Text = Data.Organization.Manager.Notes;
             Manager_Combo.SelectedIndex = (Int32)Data.Organization.Manager.Type.ManagerID;
-            GoodsNum.Value = Data.Organization.Manager.GoodsBonus;
-            InfNum.Value = Data.Organization.Manager.InfluenceBonus;
-            LaborNum.Value = Data.Organization.Manager.LaborBonus;
-            MagicNum.Value = Data.Organization.Manager.MagicBonus;
-            GPNum.Value = Data.Organization.Manager.GPBonus;
+            GoodsNum.Value = Data.Organization.Manager.Earn_Goods;
+            InfNum.Value = Data.Organization.Manager.Earn_Influence;
+            LaborNum.Value = Data.Organization.Manager.Earn_Labor;
+            MagicNum.Value = Data.Organization.Manager.Earn_Magic;
+            GPNum.Value = Data.Organization.Manager.Earn_GP;
+            Focus_Combo.SelectedIndex = (int)Data.Organization.Manager.ActiveResource.Resource_ID;
         }
 
         /// <summary>
@@ -64,17 +66,18 @@ namespace PF_Downtime
             Data.Organization.Manager.Name = Name_Text.Text;
             Data.Organization.Manager.Notes = Notes_Text.Text;
             Data.Organization.Manager.Type = (Models.BaseManager)Manager_Combo.SelectedValue;
+            Data.Organization.Manager.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
             int x = 0;
             int.TryParse(GoodsNum.Text, out x);
-            Data.Organization.Manager.GoodsBonus = x;
+            Data.Organization.Manager.Earn_Goods = x;
             int.TryParse(InfNum.Text, out x);
-            Data.Organization.Manager.InfluenceBonus = x;
+            Data.Organization.Manager.Earn_Influence = x;
             int.TryParse(LaborNum.Text, out x);
-            Data.Organization.Manager.LaborBonus = x;
+            Data.Organization.Manager.Earn_Labor = x;
             int.TryParse(MagicNum.Text, out x);
-            Data.Organization.Manager.MagicBonus = x;
+            Data.Organization.Manager.Earn_Magic = x;
             int.TryParse(GPNum.Text, out x);
-            Data.Organization.Manager.GPBonus = x;
+            Data.Organization.Manager.Earn_GP = x;
             Close();
         }
 
@@ -87,6 +90,16 @@ namespace PF_Downtime
         {
             Description_Text.Text = ((Models.BaseManager)Manager_Combo.SelectedValue).Description;
             Skills_Text.Text = ((Models.BaseManager)Manager_Combo.SelectedValue).Skills;
+        }
+
+        /// <summary>
+        /// Populates resources into the focus_combo
+        /// </summary>
+        public void PopulateResourceCombo()
+        {
+            Focus_Combo.DataSource = Data.ResourceList;
+            Focus_Combo.DisplayMember = "Name";
+            Focus_Combo.ValueMember = null;
         }
     }
 }

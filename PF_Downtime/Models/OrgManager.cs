@@ -16,6 +16,11 @@ namespace PF_Downtime.Models
         }
 
         /// <summary>
+        /// BaseResource object showing what this object adds to earnings checks
+        /// </summary>
+        public BaseResource ActiveResource { get; set; } = new BaseResource();
+
+        /// <summary>
         /// User controlled Manager Name
         /// </summary>
         public String Name { get; set; } = "";
@@ -27,12 +32,26 @@ namespace PF_Downtime.Models
         /// User controlled Manager Notes
         /// </summary>
         public String Notes { get; set; } = "";
-
-        public int GPBonus { get; set; } = 0;
-        public int GoodsBonus { get; set; } = 0;
-        public int InfluenceBonus { get; set; } = 0;
-        public int LaborBonus { get; set; } = 0;
-        public int MagicBonus { get; set; } = 0;
+        /// <summary>
+        /// Goods earnings modifier
+        /// </summary>
+        public Int64 Earn_Goods { get; set; } = 0;
+        /// <summary>
+        /// GP earnings modifier
+        /// </summary>
+        public Int64 Earn_GP { get; set; } = 0;
+        /// <summary>
+        /// Influence earnings modifier
+        /// </summary>
+        public Int64 Earn_Influence { get; set; } = 0;
+        /// <summary>
+        /// Labor earnings modifier
+        /// </summary>
+        public Int64 Earn_Labor { get; set; } = 0;
+        /// <summary>
+        /// Magic earnings modifier
+        /// </summary>
+        public Int64 Earn_Magic { get; set; } = 0;
 
     }
 }

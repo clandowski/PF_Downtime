@@ -66,7 +66,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.ActiveResource.Resource_ID == 0).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
                     Teams.Where(e => e.ActiveResource.Resource_ID == 0).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
-                    Manager.GPBonus;
+                    (Manager.ActiveResource.Resource_ID == 0 ? Manager.Earn_GP : 0);
             }
         }
 
@@ -80,7 +80,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.ActiveResource.Resource_ID == 1).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
                     Teams.Where(e => e.ActiveResource.Resource_ID == 1).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
-                    Manager.GoodsBonus;
+                    (Manager.ActiveResource.Resource_ID == 1 ? Manager.Earn_Goods : 0);
             }
         }
 
@@ -94,7 +94,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.ActiveResource.Resource_ID == 2).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
                     Teams.Where(e => e.ActiveResource.Resource_ID == 2).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
-                    Manager.InfluenceBonus;
+                    (Manager.ActiveResource.Resource_ID == 2 ? Manager.Earn_Influence : 0);
             }
         }
 
@@ -108,7 +108,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.ActiveResource.Resource_ID == 3).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
                     Teams.Where(e => e.ActiveResource.Resource_ID == 3).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
-                    Manager.LaborBonus;
+                    (Manager.ActiveResource.Resource_ID == 3 ? Manager.Earn_Labor : 0);
             }
         }
 
@@ -121,8 +121,8 @@ namespace PF_Downtime.Models
             get
             {
                 return Rooms.Where(e => e.ActiveResource.Resource_ID == 4).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
-                    Teams.Where(e => e.ActiveResource.Resource_ID == 4).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) + 
-                    Manager.MagicBonus;
+                    Teams.Where(e => e.ActiveResource.Resource_ID == 4).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
+                    (Manager.ActiveResource.Resource_ID == 4 ? Manager.Earn_Magic : 0);
             }
         }
 
@@ -136,7 +136,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
                     Teams.Sum(e => e.Earn_GP) +
-                    Manager.GPBonus;
+                    Manager.Earn_GP;
             }
         }
 
@@ -150,7 +150,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
                     Teams.Sum(e => e.Earn_Goods) +
-                    Manager.GoodsBonus;
+                    Manager.Earn_Goods;
             }
         }
 
@@ -164,7 +164,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
                     Teams.Sum(e => e.Earn_Influence) +
-                    Manager.InfluenceBonus;
+                    Manager.Earn_Influence;
             }
         }
 
@@ -178,7 +178,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
                     Teams.Sum(e => e.Earn_Labor) +
-                    Manager.LaborBonus;
+                    Manager.Earn_Labor;
             }
         }
 
@@ -192,7 +192,7 @@ namespace PF_Downtime.Models
             {
                 return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
                     Teams.Sum(e => e.Earn_Magic) +
-                    Manager.MagicBonus;
+                    Manager.Earn_Magic;
             }
         }
 
