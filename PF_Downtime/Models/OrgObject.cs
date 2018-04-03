@@ -36,6 +36,10 @@ namespace PF_Downtime.Models
         /// Base Object this derives stats such as earnings and cost from, such as a BaseRoom or BaseTeam.
         /// </summary>
         public BaseObject Object = new BaseObject();
+        /// <summary>
+        /// How many instances of the base object this consists of.
+        /// </summary>
+        public int Quantity = 1;
 
         /// <summary>
         /// Gets the cost in goods of the this object from its BaseObject and Base_Augmentations
@@ -44,14 +48,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (!Paid)
-                {
-                    return Object.Cost_Goods + Augmentations.Sum(e => e.Cost_Goods);
-                }
-                else
-                {
-                    return 0;
-                }
+                return !Paid ? Quantity * (Object.Cost_Goods + Augmentations.Sum(e => e.Cost_Goods)) : 0;
             }
         }
 
@@ -62,15 +59,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (!Paid)
-                {
-                    return Object.Cost_GP + Augmentations.Sum(e => e.Cost_GP);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return !Paid ? Quantity * (Object.Cost_GP + Augmentations.Sum(e => e.Cost_GP)) : 0;
             }
         }
 
@@ -81,15 +70,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (!Paid)
-                {
-                    return Object.Cost_Influence + Augmentations.Sum(e => e.Cost_Influence);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return !Paid ? Quantity * (Object.Cost_Influence + Augmentations.Sum(e => e.Cost_Influence)) : 0;
             }
         }
 
@@ -100,15 +81,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (!Paid)
-                {
-                    return Object.Cost_Labor + Augmentations.Sum(e => e.Cost_Labor);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return !Paid ? Quantity * (Object.Cost_Labor + Augmentations.Sum(e => e.Cost_Labor)) : 0;
             }
         }
 
@@ -119,15 +92,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (!Paid)
-                {
-                    return Object.Cost_Magic + Augmentations.Sum(e => e.Cost_Magic);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return !Paid ? Quantity * (Object.Cost_Magic + Augmentations.Sum(e => e.Cost_Magic)) : 0;
             }
         }
 
@@ -139,17 +104,18 @@ namespace PF_Downtime.Models
         {
             get
             {
+                ///////////Data.Organization.Parallel
                 if (Object == null)
                 {
                     return 0;
                 }
                 else if (Augmentations == null)
                 {
-                    return Object.Days;
+                    return (Data.Organization.Parallel ? 1 : Quantity) * Object.Days;
                 }
                 else
                 {
-                    return Object.Days + Augmentations.Sum(e => e.Days);
+                    return (Data.Organization.Parallel ? 1 : Quantity) * (Object.Days + Augmentations.Sum(e => e.Days));
                 }
             }
         }
@@ -162,14 +128,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (Paid)
-                {
-                    return Object.Earn_Goods + Augmentations.Sum(e => e.Earn_Goods);
-                }
-                else
-                {
-                    return 0;
-                }
+                return Paid ? Quantity * (Object.Earn_Goods + Augmentations.Sum(e => e.Earn_Goods)) : 0;
 
             }
         }
@@ -182,15 +141,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (Paid)
-                {
-                    return Object.Earn_GP + Augmentations.Sum(e => e.Earn_GP);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return Paid ? Quantity * (Object.Earn_GP + Augmentations.Sum(e => e.Earn_GP)) : 0;
             }
         }
 
@@ -202,15 +153,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (Paid)
-                {
-                    return Object.Earn_Influence + Augmentations.Sum(e => e.Earn_Influence);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return Paid ? Quantity * (Object.Earn_Influence + Augmentations.Sum(e => e.Earn_Influence)) : 0;
             }
         }
 
@@ -222,15 +165,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (Paid)
-                {
-                    return Object.Earn_Labor + Augmentations.Sum(e => e.Earn_Labor);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return Paid ? Quantity * (Object.Earn_Labor + Augmentations.Sum(e => e.Earn_Labor)) : 0;
             }
         }
 
@@ -242,15 +177,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                if (Paid)
-                {
-                    return Object.Earn_Magic + Augmentations.Sum(e => e.Earn_Magic);
-                }
-                else
-                {
-                    return 0;
-                }
-
+                return Paid ? Quantity * (Object.Earn_Magic + Augmentations.Sum(e => e.Earn_Magic)) : 0;
             }
         }
 

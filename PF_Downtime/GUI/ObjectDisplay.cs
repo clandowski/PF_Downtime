@@ -107,14 +107,16 @@ namespace PF_Downtime
                 ObjectList.Columns.Clear();
                 ObjectList.Columns.Add("Name");
                 ObjectList.Columns.Add("Type");
+                ObjectList.Columns.Add("Qty");
                 ObjectList.Columns.Add("Notes");
                 foreach (Models.OrgObject @object in Objects)
                 {
-                    ObjectList.Items.Add(new ListViewItem(new string[] { @object.Name, @object.Object.Name, @object.Notes }));
+                    ObjectList.Items.Add(new ListViewItem(new string[] { @object.Name, @object.Object.Name, @object.Quantity.ToString(), @object.Notes }));
                 }
                 ObjectList.Columns[0].Width = 150;
                 ObjectList.Columns[1].Width = 120;
-                ObjectList.Columns[2].Width = 200;
+                ObjectList.Columns[2].Width = 50;
+                ObjectList.Columns[3].Width = 200;
             }
         }
 
@@ -123,9 +125,9 @@ namespace PF_Downtime
         /// </summary>
         public void PopulateResourceCombo()
         {
-            Focus_Combo.DataSource = Data.ResourceList;
+            Focus_Combo.DataSource    = Data.ResourceList;
             Focus_Combo.DisplayMember = "Name";
-            Focus_Combo.ValueMember = null;
+            Focus_Combo.ValueMember   = null;
         }
 
         /// <summary>
@@ -136,23 +138,16 @@ namespace PF_Downtime
         /// <param name="e"></param>
         private void Add_Button_Click(object sender, EventArgs e)
         {
-            TempObject.Name = Name_Text.Text;
+            TempObject.Name   = Name_Text.Text;
             TempObject.Object = (Models.BaseObject)Type_Combo.SelectedValue;
             TempObject.Augmentations.Clear();
             TempObject.Augmentations.AddRange(Augment_List.SelectedItems.OfType<Models.Base_Augmentation>().ToList());
-            TempObject.Notes = Notes_Text.Text;
+            TempObject.Notes          = Notes_Text.Text;
             TempObject.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
-            TempObject.Paid = PaidCheck.Checked;
+            TempObject.Paid           = PaidCheck.Checked;
 
-            if (String.IsNullOrWhiteSpace(DaysComplete_Text.Text))
-            {
-                TempObject.DaysComplete = 0;
-            }
-            else
-            {
-                TempObject.DaysComplete = Int64.Parse(DaysComplete_Text.Text);
-            }
-
+            TempObject.Quantity     = String.IsNullOrWhiteSpace(qtyNum.Value.ToString()) ? 1 : (int)qtyNum.Value;
+            TempObject.DaysComplete = String.IsNullOrWhiteSpace(DaysComplete_Text.Text)  ? 0 : Int64.Parse(DaysComplete_Text.Text);
 
             if (ObjectList.SelectedIndices.Count == 0)
             {
@@ -190,6 +185,7 @@ namespace PF_Downtime
             Augment_List.ClearSelected();
             Focus_Combo.SelectedIndex = 0;
             PaidCheck.CheckState = CheckState.Unchecked;
+            qtyNum.Value = 1;
 
             Name_Text.Text = "";
             Notes_Text.Text = "";
@@ -214,6 +210,7 @@ namespace PF_Downtime
             TempObject.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
 
             TempObject.Paid = PaidCheck.Checked;
+            TempObject.Quantity = String.IsNullOrWhiteSpace(qtyNum.Value.ToString()) ? 1 : (int)qtyNum.Value;
             Income_Text.Text = TempObject.BuildIncome();
             Costs_Text.Text = TempObject.BuildCosts();
             Size_Text.Text = BuildSizeText();//TempObject.Size_Range;
@@ -262,10 +259,11 @@ namespace PF_Downtime
         {
             if (ObjectList.SelectedIndices.Count > 0)
             {
-                TempObject = Objects[ObjectList.SelectedIndices[0]];
-                PaidCheck.CheckState = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
+                TempObject                = Objects[ObjectList.SelectedIndices[0]];
+                PaidCheck.CheckState      = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
+                qtyNum.Value              = TempObject.Quantity;
                 Focus_Combo.SelectedIndex = (int)TempObject.ActiveResource.Resource_ID;
-                Type_Combo.SelectedIndex = (int)TempObject.Object.ID - 1;
+                Type_Combo.SelectedIndex  = (int)TempObject.Object.ID - 1;
 
                 Augment_List.SelectedItems.Clear();
                 Name_Text.Text = Objects[ObjectList.SelectedIndices[0]].Name;
@@ -277,10 +275,7 @@ namespace PF_Downtime
                     Augment_List.SetSelected((Int32)Augment.Augment_ID - 1, true);
                 }
 
-                
-
                 Object_Or_Augment_Changed(null, null);
-
             }
             else
             {
