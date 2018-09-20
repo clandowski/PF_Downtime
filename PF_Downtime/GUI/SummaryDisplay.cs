@@ -44,29 +44,55 @@ namespace PF_Downtime
         public void FillOverview()
         {
             Overview_Lst.Items.Clear();
-            Overview_Lst.Items.Add("Organization Overview");
-            Overview_Lst.Items.Add("Manager:        " + Data.Organization.Manager.Name + " - " + Data.Organization.Manager.Type.Display);
-            Overview_Lst.Items.Add("Total Rooms:    " + Data.Organization.Rooms.Count());
-            Overview_Lst.Items.Add("Total Teams:    " + Data.Organization.Teams.Count());
+            Overview_Lst.Items.Add($"Organization Overview:  Max GP Mod: {Data.Organization.Managers.Sum(x => x.Org_Earn_GP + x.Earn_GP)}");
 
-            Overview_Lst.Items.Add("---Current Income (Paid and Days Complete)---");
-            Overview_Lst.Items.Add("GP Mod:         " + Data.Organization.Earn_GP.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_GP_Max);
-            Overview_Lst.Items.Add("Goods Mod:      " + Data.Organization.Earn_Goods.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Goods_Max);
-            Overview_Lst.Items.Add("Influence Mod:  " + Data.Organization.Earn_Influence.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Influence_Max);
-            Overview_Lst.Items.Add("Labor Mod:      " + Data.Organization.Earn_Labor.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Labor_Max);
-            Overview_Lst.Items.Add("Magic Mod:      " + Data.Organization.Earn_Magic.ToString().PadRight(2) + " Max: " + Data.Organization.Earn_Magic_Max);
+            if (Data.Organization.Rooms.Where(x => !Data.Organization.Managers.Any(p => x.ManagerID == p.ID)).Count() > 0)
+            {
+                Overview_Lst.Items.Add("");
+                Overview_Lst.Items.Add("Warning:  You have Rooms with no Manager!");
+                Overview_Lst.Items.Add("");
+            }
+            if (Data.Organization.Teams.Where(x => !Data.Organization.Managers.Any(p => x.ManagerID == p.ID)).Count() > 0)
+            {
+                Overview_Lst.Items.Add("");
+                Overview_Lst.Items.Add("Warning:  You have Teams with no Manager!");
+                Overview_Lst.Items.Add("");
+            }
+
+            int width = Data.Organization.Managers.Count > 0 ? Math.Max(Data.Organization.Managers.Max(x => x.Name.Length) + 3 + Data.Organization.Managers.Max(x => x.Type.Display.Length), 50) : 50;
+
+            foreach (Models.OrgManager man in Data.Organization.Managers)
+            {
+                Overview_Lst.Items.Add($"{("__________" + man.Name + " - " +man.Type.Display).ToString().PadRight(width, '_')}");
+                if (man.Room_Count > 0) Overview_Lst.Items.Add("Total Rooms:    " + man.Room_Count);
+                if (man.Team_Count > 0) Overview_Lst.Items.Add("Total Teams:    " + man.Team_Count);
+
+                Overview_Lst.Items.Add($"Current Resource:  {man.ActiveResource.Name}");
+                Overview_Lst.Items.Add($"GP Mod:            {(man.Org_Earn_GP        + man.Earn_GP           ).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Goods Mod:         {(man.Org_Earn_Goods     + man.Earn_Goods        ).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Influence Mod:     {(man.Org_Earn_Influence + man.Org_Earn_Influence).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Labor Mod:         {(man.Org_Earn_Labor     + man.Org_Earn_Labor    ).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Magic Mod:         {(man.Org_Earn_Magic     + man.Org_Earn_Magic    ).ToString().PadRight(2)}");
+
+                if (man.ConstructionDaysRemaining != 0 || man.RecruitmentDaysRemaining != 0)
+                {
+                    Overview_Lst.Items.Add("---Pending Time (Paid Only)---");
+                    Overview_Lst.Items.Add("Buildtime:      " + man.ConstructionDaysRemaining);
+                    Overview_Lst.Items.Add("Recruittime:    " + man.RecruitmentDaysRemaining);
+                }
+
+                if (man.Cost_GP != 0 || man.Cost_Goods != 0 || man.Cost_Influence != 0 || man.Cost_Labor != 0 || man.Cost_Magic != 0)
+                {
+                    Overview_Lst.Items.Add("---Remaining Costs (Unpaid Only)---");
+                    Overview_Lst.Items.Add("Buyout GP Cost: " + man.Cost_GP);
+                    Overview_Lst.Items.Add("Goods Cost:     " + man.Cost_Goods);
+                    Overview_Lst.Items.Add("Influence Cost: " + man.Cost_Influence);
+                    Overview_Lst.Items.Add("Labor Cost:     " + man.Cost_Labor);
+                    Overview_Lst.Items.Add("Magic Cost:     " + man.Cost_Magic);
+                }
+                Overview_Lst.Items.Add("");
+            }
             
-            Overview_Lst.Items.Add("---Pending Time (Paid Only)---");
-            Overview_Lst.Items.Add("Buildtime:      " + Data.Organization.ConstructionDaysRemaining);
-            Overview_Lst.Items.Add("Recruittime:    " + Data.Organization.RecruitmentDaysRemaining);
-
-            Overview_Lst.Items.Add("---Remaining Costs (Unpaid Only)---");
-            Overview_Lst.Items.Add("Buyout GP Cost: " + Data.Organization.Cost_GP);
-            Overview_Lst.Items.Add("Goods Cost:     " + Data.Organization.Cost_Goods);
-            Overview_Lst.Items.Add("Influence Cost: " + Data.Organization.Cost_Influence);
-            Overview_Lst.Items.Add("Labor Cost:     " + Data.Organization.Cost_Labor);
-            Overview_Lst.Items.Add("Magic Cost:     " + Data.Organization.Cost_Magic);
-
         }
 
         /// <summary>
@@ -203,6 +229,15 @@ namespace PF_Downtime
         private void Unpaid_Button_Click(object sender, EventArgs e)
         {
             Data.Organization.UnPayAll();
+            FillOverview();
+        }
+
+        private void Man_BTN_Click(object sender, EventArgs e)
+        {
+            Data.Organization.Name = Name_Text.Text;
+            GUI.ManagersDisplay Managers = new GUI.ManagersDisplay(Data.Organization.Managers);
+            Managers.ShowDialog();
+
             FillOverview();
         }
     }

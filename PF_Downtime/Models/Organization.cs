@@ -20,10 +20,10 @@ namespace PF_Downtime.Models
         /// </summary>
         public Organization()
         {
-            Rooms = new List<OrgRoom>();
-            Teams = new List<OrgTeam>();
-            Manager = new OrgManager();
-            Settlement = new OrgSettlement();
+            //Rooms = new List<OrgRoom>();
+            //Teams = new List<OrgTeam>();
+            //Managers = new List<OrgManager>();
+            //Settlement = new OrgSettlement();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace PF_Downtime.Models
         /// <summary>
         /// Manager for this organization
         /// </summary>
-        public OrgManager Manager { get; set; } = new OrgManager();
+        public List<OrgManager> Managers { get; set; } = new List<OrgManager>();
         /// <summary>
         /// Settlement for this organization
         /// </summary>
@@ -64,9 +64,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.ActiveResource.Resource_ID == 0).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
-                    Teams.Where(e => e.ActiveResource.Resource_ID == 0).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
-                    (Manager.ActiveResource.Resource_ID == 0 ? Manager.Earn_GP : 0);
+                return Managers.Where(e => e.ActiveResource.Resource_ID == 0).Sum(e => e.Earn_GP + e.Org_Earn_GP);
             }
         }
 
@@ -78,9 +76,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.ActiveResource.Resource_ID == 1).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
-                    Teams.Where(e => e.ActiveResource.Resource_ID == 1).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
-                    (Manager.ActiveResource.Resource_ID == 1 ? Manager.Earn_Goods : 0);
+                return Managers.Where(e => e.ActiveResource.Resource_ID == 0).Sum(e => e.Earn_Goods + e.Org_Earn_Goods);
             }
         }
 
@@ -92,9 +88,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.ActiveResource.Resource_ID == 2).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
-                    Teams.Where(e => e.ActiveResource.Resource_ID == 2).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
-                    (Manager.ActiveResource.Resource_ID == 2 ? Manager.Earn_Influence : 0);
+                return Managers.Where(e => e.ActiveResource.Resource_ID == 0).Sum(e => e.Earn_Influence + e.Org_Earn_Influence);
             }
         }
 
@@ -106,9 +100,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.ActiveResource.Resource_ID == 3).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
-                    Teams.Where(e => e.ActiveResource.Resource_ID == 3).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
-                    (Manager.ActiveResource.Resource_ID == 3 ? Manager.Earn_Labor : 0);
+                return Managers.Where(e => e.ActiveResource.Resource_ID == 0).Sum(e => e.Earn_Labor + e.Org_Earn_Labor);
             }
         }
 
@@ -120,9 +112,7 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.ActiveResource.Resource_ID == 4).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
-                    Teams.Where(e => e.ActiveResource.Resource_ID == 4).Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
-                    (Manager.ActiveResource.Resource_ID == 4 ? Manager.Earn_Magic : 0);
+                return Managers.Where(e => e.ActiveResource.Resource_ID == 0).Sum(e => e.Earn_Magic + e.Org_Earn_Magic);
             }
         }
 
@@ -134,9 +124,9 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
-                    Teams.Sum(e => e.Earn_GP) +
-                    Manager.Earn_GP;
+                return Rooms   .Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_GP) +
+                       Teams   .Sum  (e => e.Earn_GP) +
+                       Managers.Sum  (e => e.Earn_GP);
             }
         }
 
@@ -148,9 +138,9 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
-                    Teams.Sum(e => e.Earn_Goods) +
-                    Manager.Earn_Goods;
+                return Rooms   .Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Goods) +
+                       Teams   .Sum  (e => e.Earn_Goods) +
+                       Managers.Sum  (e => e.Earn_Goods);
             }
         }
 
@@ -162,9 +152,9 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
-                    Teams.Sum(e => e.Earn_Influence) +
-                    Manager.Earn_Influence;
+                return Rooms   .Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Influence) +
+                       Teams   .Sum  (e => e.Earn_Influence) +
+                       Managers.Sum  (e => e.Earn_Influence);
             }
         }
 
@@ -176,9 +166,9 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
-                    Teams.Sum(e => e.Earn_Labor) +
-                    Manager.Earn_Labor;
+                return Rooms.Where (e => e.DaysRemaining == 0).Sum(e => e.Earn_Labor) +
+                       Teams.Sum   (e => e.Earn_Labor) +
+                       Managers.Sum(e => e.Earn_Labor);
             }
         }
 
@@ -190,9 +180,9 @@ namespace PF_Downtime.Models
         {
             get
             {
-                return Rooms.Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
-                    Teams.Sum(e => e.Earn_Magic) +
-                    Manager.Earn_Magic;
+                return Rooms   .Where(e => e.DaysRemaining == 0).Sum(e => e.Earn_Magic) +
+                       Teams   .Sum  (e => e.Earn_Magic) +
+                       Managers.Sum  (e => e.Earn_Magic);
             }
         }
 
@@ -205,7 +195,7 @@ namespace PF_Downtime.Models
             get
             {
                 return Rooms.Sum(e => e.Cost_GP) +
-                    Teams.Sum(e => e.Cost_GP);
+                       Teams.Sum(e => e.Cost_GP);
             }
         }
 
@@ -218,7 +208,7 @@ namespace PF_Downtime.Models
             get
             {
                 return Rooms.Sum(e => e.Cost_Goods) +
-                    Teams.Sum(e => e.Cost_Goods);
+                       Teams.Sum(e => e.Cost_Goods);
             }
         }
 
@@ -231,7 +221,7 @@ namespace PF_Downtime.Models
             get
             {
                 return Rooms.Sum(e => e.Cost_Influence) +
-                    Teams.Sum(e => e.Cost_Influence);
+                       Teams.Sum(e => e.Cost_Influence);
             }
         }
 
@@ -244,7 +234,7 @@ namespace PF_Downtime.Models
             get
             {
                 return Rooms.Sum(e => e.Cost_Labor) +
-                    Teams.Sum(e => e.Cost_Labor);
+                       Teams.Sum(e => e.Cost_Labor);
             }
         }
 
@@ -257,7 +247,7 @@ namespace PF_Downtime.Models
             get
             {
                 return Rooms.Sum(e => e.Cost_Magic) +
-                    Teams.Sum(e => e.Cost_Magic);
+                       Teams.Sum(e => e.Cost_Magic);
             }
         }
 

@@ -16,11 +16,11 @@ namespace PF_Downtime.Models
         /// <param name="Notes">User controlled notes</param>
         /// <param name="ActiveResource">Resource this room is currently generating</param>
         /// <param name="DaysComplete"></param>
-        public OrgTeam(String Name, BaseTeam Team, String Notes, Models.BaseResource ActiveResource)
+        public OrgTeam(String Name, BaseTeam Team, String Notes, Guid ManagerID)
         {
             this.Name = Name;
             this.Team = Team;
-            this.ActiveResource = ActiveResource;
+            this.ManagerID = ManagerID;
             this.Notes = Notes;
         }
 

@@ -40,6 +40,7 @@
             this.advanceButton = new System.Windows.Forms.Button();
             this.Paid_Button = new System.Windows.Forms.Button();
             this.Unpaid_Button = new System.Windows.Forms.Button();
+            this.Man_BTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Name_Text
@@ -98,11 +99,10 @@
             // 
             // Export_Btn
             // 
-            this.Export_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Export_Btn.Location = new System.Drawing.Point(231, 629);
+            this.Export_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Export_Btn.Location = new System.Drawing.Point(14, 516);
             this.Export_Btn.Name = "Export_Btn";
-            this.Export_Btn.Size = new System.Drawing.Size(167, 45);
+            this.Export_Btn.Size = new System.Drawing.Size(211, 51);
             this.Export_Btn.TabIndex = 6;
             this.Export_Btn.Text = "Export";
             this.Export_Btn.UseVisualStyleBackColor = true;
@@ -175,11 +175,24 @@
             this.Unpaid_Button.UseVisualStyleBackColor = true;
             this.Unpaid_Button.Click += new System.EventHandler(this.Unpaid_Button_Click);
             // 
+            // Man_BTN
+            // 
+            this.Man_BTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Man_BTN.Location = new System.Drawing.Point(232, 630);
+            this.Man_BTN.Name = "Man_BTN";
+            this.Man_BTN.Size = new System.Drawing.Size(165, 45);
+            this.Man_BTN.TabIndex = 13;
+            this.Man_BTN.Text = "Managers";
+            this.Man_BTN.UseVisualStyleBackColor = true;
+            this.Man_BTN.Click += new System.EventHandler(this.Man_BTN_Click);
+            // 
             // Organizaion_frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 686);
+            this.Controls.Add(this.Man_BTN);
             this.Controls.Add(this.Unpaid_Button);
             this.Controls.Add(this.Paid_Button);
             this.Controls.Add(this.advanceButton);
@@ -214,6 +227,7 @@
         private System.Windows.Forms.Button advanceButton;
         private System.Windows.Forms.Button Paid_Button;
         private System.Windows.Forms.Button Unpaid_Button;
+        private System.Windows.Forms.Button Man_BTN;
     }
 }
 

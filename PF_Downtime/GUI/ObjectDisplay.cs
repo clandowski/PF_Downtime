@@ -121,13 +121,13 @@ namespace PF_Downtime
         }
 
         /// <summary>
-        /// Populates resources into the focus_combo
+        /// Populates managers into the manager_combo
         /// </summary>
-        public void PopulateResourceCombo()
+        public void PopulateManagerCombo()
         {
-            Focus_Combo.DataSource    = Data.ResourceList;
-            Focus_Combo.DisplayMember = "Name";
-            Focus_Combo.ValueMember   = null;
+            Manager_Combo.DataSource = Data.Organization.Managers;
+            Manager_Combo.DisplayMember = "Name";
+            Manager_Combo.ValueMember   = null;
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace PF_Downtime
             TempObject.Augmentations.Clear();
             TempObject.Augmentations.AddRange(Augment_List.SelectedItems.OfType<Models.Base_Augmentation>().ToList());
             TempObject.Notes          = Notes_Text.Text;
-            TempObject.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
+            if (Manager_Combo.SelectedValue != null) TempObject.ManagerID = ((Models.OrgManager)Manager_Combo.SelectedValue).ID;
             TempObject.Paid           = PaidCheck.Checked;
 
             TempObject.Quantity     = String.IsNullOrWhiteSpace(qtyNum.Value.ToString()) ? 1 : (int)qtyNum.Value;
@@ -183,7 +183,7 @@ namespace PF_Downtime
             ObjectList.SelectedItems.Clear();
             Type_Combo.SelectedIndex = 0;
             Augment_List.ClearSelected();
-            Focus_Combo.SelectedIndex = 0;
+            Manager_Combo.SelectedIndex = 0;
             PaidCheck.CheckState = CheckState.Unchecked;
             qtyNum.Value = 1;
 
@@ -194,7 +194,7 @@ namespace PF_Downtime
             RespawnTempObject();
             TempObject.Object = (Models.BaseObject)Type_Combo.SelectedValue;
             TempObject.Augmentations = Augment_List.SelectedItems.OfType<Models.Base_Augmentation>().ToList();
-            TempObject.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
+            TempObject.ManagerID = ((Models.OrgManager)Manager_Combo.SelectedValue).ID;
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace PF_Downtime
             RespawnTempObject();
             TempObject.Object = (Models.BaseObject)Type_Combo.SelectedValue;
             TempObject.Augmentations = Augment_List.SelectedItems.OfType<Models.Base_Augmentation>().ToList();
-            TempObject.ActiveResource = (Models.BaseResource)Focus_Combo.SelectedValue;
+            if (Manager_Combo.SelectedValue != null) TempObject.ManagerID = ((Models.OrgManager)Manager_Combo.SelectedValue).ID;
 
             TempObject.Paid = PaidCheck.Checked;
             TempObject.Quantity = String.IsNullOrWhiteSpace(qtyNum.Value.ToString()) ? 1 : (int)qtyNum.Value;
@@ -246,7 +246,7 @@ namespace PF_Downtime
             PopulateObjectList();
             PopulateBaseObjectCombo();
             PopulateAugmentList();
-            PopulateResourceCombo();
+            PopulateManagerCombo();
         }
 
         /// <summary>
@@ -259,11 +259,11 @@ namespace PF_Downtime
         {
             if (ObjectList.SelectedIndices.Count > 0)
             {
-                TempObject                = Objects[ObjectList.SelectedIndices[0]];
-                PaidCheck.CheckState      = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
-                qtyNum.Value              = TempObject.Quantity;
-                Focus_Combo.SelectedIndex = (int)TempObject.ActiveResource.Resource_ID;
-                Type_Combo.SelectedIndex  = (int)TempObject.Object.ID - 1;
+                TempObject                 = Objects[ObjectList.SelectedIndices[0]];
+                PaidCheck.CheckState       = TempObject.Paid ? CheckState.Checked : CheckState.Unchecked;
+                qtyNum.Value               = TempObject.Quantity;
+                Manager_Combo.SelectedItem = Data.Organization.Managers.Where(x => x.ID == TempObject.ManagerID).FirstOrDefault(); //todo:  This probably doesn't work
+                Type_Combo.SelectedIndex   = (int)TempObject.Object.ID - 1;
 
                 Augment_List.SelectedItems.Clear();
                 Name_Text.Text = Objects[ObjectList.SelectedIndices[0]].Name;

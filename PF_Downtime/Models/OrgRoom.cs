@@ -18,14 +18,14 @@ namespace PF_Downtime.Models
         /// <param name="Augmentations">List of BaseRoom_Augmentations to apply to the base room</param>
         /// <param name="Notes">User controlled room notes</param>
         /// <param name="ActiveResource">Resource this room is currently generating</param>
-        public OrgRoom(String Name, BaseRoom Room, List<BaseRoom_Augmentation> Augmentations, String Notes, BaseResource ActiveResource)
+        public OrgRoom(String Name, BaseRoom Room, List<BaseRoom_Augmentation> Augmentations, String Notes, Guid ManagerID)
         {
             this.Name = Name;
             this.Room = Room;
             this.Augmentations.Clear();
             this.Augmentations.AddRange(Augmentations);
             this.Notes = Notes;
-            this.ActiveResource = ActiveResource;
+            this.ManagerID = ManagerID;
         }
 
         /// <summary>

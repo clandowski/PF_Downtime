@@ -25,9 +25,9 @@ namespace PF_Downtime.Models
         public Boolean Paid { get; set; } = false;
 
         /// <summary>
-        /// BaseResource object showing what this object adds to earnings checks
+        /// Manager that this object contributes its check to
         /// </summary>
-        public BaseResource ActiveResource { get; set; } = new BaseResource();
+        public Guid ManagerID { get; set; }
         /// <summary>
         /// List of Base_Augmentations that modify the Object
         /// </summary>
