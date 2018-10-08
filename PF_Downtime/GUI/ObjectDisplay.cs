@@ -111,7 +111,13 @@ namespace PF_Downtime
                 ObjectList.Columns.Add("Notes");
                 foreach (Models.OrgObject @object in Objects)
                 {
-                    ObjectList.Items.Add(new ListViewItem(new string[] { @object.Name, @object.Object.Name, @object.Quantity.ToString(), @object.Notes }));
+                    System.Drawing.Color bg = System.Drawing.Color.White;
+                    if (Manager_Filter_Combo.SelectedItem != null)
+                    {
+                        bg = @object.ManagerID == ((Models.OrgManager)Manager_Filter_Combo.SelectedItem).ID ? System.Drawing.Color.White : System.Drawing.Color.Gray;
+                    }
+                    
+                    ObjectList.Items.Add(new ListViewItem(new string[] { @object.Name, @object.Object.Name, @object.Quantity.ToString(), @object.Notes }, null, System.Drawing.Color.Black, bg,null));
                 }
                 ObjectList.Columns[0].Width = 150;
                 ObjectList.Columns[1].Width = 120;
@@ -128,6 +134,10 @@ namespace PF_Downtime
             Manager_Combo.DataSource = Data.Organization.Managers;
             Manager_Combo.DisplayMember = "Name";
             Manager_Combo.ValueMember   = null;
+
+            Manager_Filter_Combo.DataSource = Data.Organization.Managers;
+            Manager_Filter_Combo.DisplayMember = "Name";
+            Manager_Filter_Combo.ValueMember = null;
         }
 
         /// <summary>
@@ -400,6 +410,11 @@ namespace PF_Downtime
             TempObject.Paid = PaidCheck.Checked;
             Income_Text.Text = TempObject.BuildIncome();
             Costs_Text.Text = TempObject.BuildCosts();
+        }
+
+        private void Manager_Filter_Combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateObjectList();
         }
     }
 }

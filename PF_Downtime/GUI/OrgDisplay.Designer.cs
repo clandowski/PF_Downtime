@@ -30,12 +30,10 @@
         {
             this.Settlement_Combo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Manager_Button = new System.Windows.Forms.Button();
             this.Location_Text = new System.Windows.Forms.TextBox();
             this.Location_Label = new System.Windows.Forms.Label();
             this.Notes_Text = new System.Windows.Forms.TextBox();
             this.Notes_Label = new System.Windows.Forms.Label();
-            this.Manager_Label = new System.Windows.Forms.Label();
             this.Save_Button = new System.Windows.Forms.Button();
             this.ParallelCheck = new System.Windows.Forms.CheckBox();
             this.BlackMarketCombo = new System.Windows.Forms.ComboBox();
@@ -63,19 +61,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Size";
             // 
-            // Manager_Button
-            // 
-            this.Manager_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Manager_Button.Location = new System.Drawing.Point(88, 108);
-            this.Manager_Button.Name = "Manager_Button";
-            this.Manager_Button.Size = new System.Drawing.Size(644, 43);
-            this.Manager_Button.TabIndex = 4;
-            this.Manager_Button.Text = "Manager";
-            this.Manager_Button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Manager_Button.UseVisualStyleBackColor = true;
-            this.Manager_Button.Click += new System.EventHandler(this.Manager_Button_Click);
-            // 
             // Location_Text
             // 
             this.Location_Text.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -99,35 +84,26 @@
             this.Notes_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Notes_Text.Location = new System.Drawing.Point(88, 157);
+            this.Notes_Text.Location = new System.Drawing.Point(88, 108);
             this.Notes_Text.Multiline = true;
             this.Notes_Text.Name = "Notes_Text";
-            this.Notes_Text.Size = new System.Drawing.Size(644, 222);
+            this.Notes_Text.Size = new System.Drawing.Size(644, 195);
             this.Notes_Text.TabIndex = 7;
             // 
             // Notes_Label
             // 
             this.Notes_Label.AutoSize = true;
-            this.Notes_Label.Location = new System.Drawing.Point(31, 160);
+            this.Notes_Label.Location = new System.Drawing.Point(31, 111);
             this.Notes_Label.Name = "Notes_Label";
             this.Notes_Label.Size = new System.Drawing.Size(51, 20);
             this.Notes_Label.TabIndex = 8;
             this.Notes_Label.Text = "Notes";
             // 
-            // Manager_Label
-            // 
-            this.Manager_Label.AutoSize = true;
-            this.Manager_Label.Location = new System.Drawing.Point(10, 119);
-            this.Manager_Label.Name = "Manager_Label";
-            this.Manager_Label.Size = new System.Drawing.Size(72, 20);
-            this.Manager_Label.TabIndex = 9;
-            this.Manager_Label.Text = "Manager";
-            // 
             // Save_Button
             // 
             this.Save_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save_Button.Location = new System.Drawing.Point(88, 416);
+            this.Save_Button.Location = new System.Drawing.Point(88, 339);
             this.Save_Button.Name = "Save_Button";
             this.Save_Button.Size = new System.Drawing.Size(644, 41);
             this.Save_Button.TabIndex = 10;
@@ -140,7 +116,7 @@
             this.ParallelCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ParallelCheck.AutoSize = true;
-            this.ParallelCheck.Location = new System.Drawing.Point(88, 386);
+            this.ParallelCheck.Location = new System.Drawing.Point(88, 309);
             this.ParallelCheck.Name = "ParallelCheck";
             this.ParallelCheck.Size = new System.Drawing.Size(186, 24);
             this.ParallelCheck.TabIndex = 11;
@@ -172,17 +148,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 476);
+            this.ClientSize = new System.Drawing.Size(744, 392);
             this.Controls.Add(this.BMLabel);
             this.Controls.Add(this.BlackMarketCombo);
             this.Controls.Add(this.ParallelCheck);
             this.Controls.Add(this.Save_Button);
-            this.Controls.Add(this.Manager_Label);
             this.Controls.Add(this.Notes_Label);
             this.Controls.Add(this.Notes_Text);
             this.Controls.Add(this.Location_Label);
             this.Controls.Add(this.Location_Text);
-            this.Controls.Add(this.Manager_Button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Settlement_Combo);
             this.Name = "OrgDisplay";
@@ -196,12 +170,10 @@
         #endregion
         private System.Windows.Forms.ComboBox Settlement_Combo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Manager_Button;
         private System.Windows.Forms.TextBox Location_Text;
         private System.Windows.Forms.Label Location_Label;
         private System.Windows.Forms.TextBox Notes_Text;
         private System.Windows.Forms.Label Notes_Label;
-        private System.Windows.Forms.Label Manager_Label;
         private System.Windows.Forms.Button Save_Button;
         private System.Windows.Forms.CheckBox ParallelCheck;
         private System.Windows.Forms.ComboBox BlackMarketCombo;

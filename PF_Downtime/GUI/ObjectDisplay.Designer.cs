@@ -68,6 +68,8 @@ namespace PF_Downtime
             this.Aug_Max_Text = new System.Windows.Forms.TextBox();
             this.qtyLabel = new System.Windows.Forms.Label();
             this.qtyNum = new System.Windows.Forms.NumericUpDown();
+            this.Manager_Filter_Combo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.qtyNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -485,11 +487,32 @@ namespace PF_Downtime
             this.qtyNum.Size = new System.Drawing.Size(202, 26);
             this.qtyNum.TabIndex = 0;
             // 
+            // Manager_Filter_Combo
+            // 
+            this.Manager_Filter_Combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Manager_Filter_Combo.FormattingEnabled = true;
+            this.Manager_Filter_Combo.Location = new System.Drawing.Point(512, 3);
+            this.Manager_Filter_Combo.Name = "Manager_Filter_Combo";
+            this.Manager_Filter_Combo.Size = new System.Drawing.Size(280, 28);
+            this.Manager_Filter_Combo.TabIndex = 61;
+            this.Manager_Filter_Combo.SelectedIndexChanged += new System.EventHandler(this.Manager_Filter_Combo_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(395, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 20);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Manager Filter";
+            // 
             // ObjectDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 965);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Manager_Filter_Combo);
             this.Controls.Add(this.qtyNum);
             this.Controls.Add(this.qtyLabel);
             this.Controls.Add(this.Aug_Max_Text);
@@ -575,5 +598,7 @@ namespace PF_Downtime
         private System.Windows.Forms.TextBox Aug_Max_Text;
         private System.Windows.Forms.Label qtyLabel;
         private System.Windows.Forms.NumericUpDown qtyNum;
+        private System.Windows.Forms.ComboBox Manager_Filter_Combo;
+        private System.Windows.Forms.Label label1;
     }
 }

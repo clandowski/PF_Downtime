@@ -23,7 +23,6 @@ namespace PF_Downtime
         /// <param name="e"></param>
         private void OrgDisplay_Load(object sender, EventArgs e)
         {
-            Manager_Button.Text = "";//Data.Organization.Manager.Name + " - " + Data.Organization.Manager.Type.Display;
             PopulateLimitCombo();
             PopulateBMCombo();
             PopulateSettlementInfo();
@@ -75,7 +74,6 @@ namespace PF_Downtime
         {
             ManagerDisplay Manager = new ManagerDisplay();
             Manager.ShowDialog();
-            Manager_Button.Text = "";//Data.Organization.Manager.Name + " - " + Data.Organization.Manager.Type.Display;
         }
 
         /// <summary>
