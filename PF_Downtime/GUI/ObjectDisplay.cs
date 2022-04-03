@@ -131,11 +131,11 @@ namespace PF_Downtime
         /// </summary>
         public void PopulateManagerCombo()
         {
-            Manager_Combo.DataSource = Data.Organization.Managers;
+            Manager_Combo.DataSource = Data.Organization.Managers.ToList();
             Manager_Combo.DisplayMember = "Name";
             Manager_Combo.ValueMember   = null;
 
-            Manager_Filter_Combo.DataSource = Data.Organization.Managers;
+            Manager_Filter_Combo.DataSource = Data.Organization.Managers.ToList();
             Manager_Filter_Combo.DisplayMember = "Name";
             Manager_Filter_Combo.ValueMember = null;
         }
@@ -193,7 +193,8 @@ namespace PF_Downtime
             ObjectList.SelectedItems.Clear();
             Type_Combo.SelectedIndex = 0;
             Augment_List.ClearSelected();
-            Manager_Combo.SelectedIndex = 0;
+
+            if (Manager_Combo.Items.Count != 0)  Manager_Combo.SelectedIndex = 0;
             PaidCheck.CheckState = CheckState.Unchecked;
             qtyNum.Value = 1;
 
@@ -204,7 +205,7 @@ namespace PF_Downtime
             RespawnTempObject();
             TempObject.Object = (Models.BaseObject)Type_Combo.SelectedValue;
             TempObject.Augmentations = Augment_List.SelectedItems.OfType<Models.Base_Augmentation>().ToList();
-            TempObject.ManagerID = ((Models.OrgManager)Manager_Combo.SelectedValue).ID;
+            if (Manager_Combo.Items.Count != 0)  TempObject.ManagerID = ((Models.OrgManager)Manager_Combo.SelectedValue).ID;
         }
 
         /// <summary>

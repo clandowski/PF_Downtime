@@ -70,9 +70,9 @@ namespace PF_Downtime
                 Overview_Lst.Items.Add($"Current Resource:  {man.ActiveResource.Name}");
                 Overview_Lst.Items.Add($"GP Mod:            {(man.Org_Earn_GP        + man.Earn_GP           ).ToString().PadRight(2)}");
                 Overview_Lst.Items.Add($"Goods Mod:         {(man.Org_Earn_Goods     + man.Earn_Goods        ).ToString().PadRight(2)}");
-                Overview_Lst.Items.Add($"Influence Mod:     {(man.Org_Earn_Influence + man.Org_Earn_Influence).ToString().PadRight(2)}");
-                Overview_Lst.Items.Add($"Labor Mod:         {(man.Org_Earn_Labor     + man.Org_Earn_Labor    ).ToString().PadRight(2)}");
-                Overview_Lst.Items.Add($"Magic Mod:         {(man.Org_Earn_Magic     + man.Org_Earn_Magic    ).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Influence Mod:     {(man.Org_Earn_Influence + man.Earn_Influence    ).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Labor Mod:         {(man.Org_Earn_Labor     + man.Earn_Labor        ).ToString().PadRight(2)}");
+                Overview_Lst.Items.Add($"Magic Mod:         {(man.Org_Earn_Magic     + man.Earn_Magic        ).ToString().PadRight(2)}");
 
                 if (man.ConstructionDaysRemaining != 0 || man.RecruitmentDaysRemaining != 0)
                 {
